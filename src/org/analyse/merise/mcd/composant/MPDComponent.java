@@ -205,7 +205,7 @@ public class MPDComponent extends ZGraphique {
                 String w_info = (ent.getForeignKeys().containsKey(info)) ? info.substring(info.indexOf("_")+1) : info ;
 
                 try {
-                    type = (String) data.getValue(w_info, DictionnaireTable.TYPE);
+                    type = (String) data.getValue(info, DictionnaireTable.TYPE);
                 } catch (Exception ex) {
                     type = defautType;
                 }
@@ -273,9 +273,9 @@ public class MPDComponent extends ZGraphique {
                 try {
                     w_info = (ent.getForeignKeys().containsKey(info)) ? info.substring(info.indexOf("_")+1) : info ;
 
-                    if (((Integer) data.getValue(w_info, DictionnaireTable.SIZE)).intValue() != 0
-                            && !sql.getTypesWithoutSize().contains(data.getValue(w_info, DictionnaireTable.TYPE))) {
-                        text += "(" + data.getValue(w_info, DictionnaireTable.SIZE) + ")";
+                    if (((Integer) data.getValue(info, DictionnaireTable.SIZE)).intValue() != 0
+                            && !sql.getTypesWithoutSize().contains(data.getValue(info, DictionnaireTable.TYPE))) {
+                        text += "(" + data.getValue(info, DictionnaireTable.SIZE) + ")";
                     }
                 } catch (Exception ex) {
 

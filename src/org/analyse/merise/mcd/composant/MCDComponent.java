@@ -648,7 +648,7 @@ public class MCDComponent extends ZGraphique implements Observer {
 							mpdLien.setElement(ent, Constantes.MCDENTITE2 );
 						}
 					}
-					
+          mpd.addLien(mpdLien);
 				} 
 				
 				if ( ws_typeAssociation.equals ( Constantes.UN_N ) ||  ws_typeAssociation.equals ( Constantes.ZERO_N ) ) {
@@ -713,18 +713,17 @@ public class MCDComponent extends ZGraphique implements Observer {
 									ent.addForeignKey(getMCDEntite((MCDAssociation) obj, "N").getCodeInformation(0),
 										Utilities.normaliseString(getMCDEntite((MCDAssociation) obj, "N").getName(), Constantes.LOWER));
 							}
-							
+
+	            mpdLien.setElement(ent, Constantes.MCDENTITE2);
 						} else {
 
 							MCDAssociation mCDAssociation = null ;
 							if ( vLinks.size() == 1 ) { //liaison reflexive
 								mCDAssociation = ( MCDAssociation ) vLinks.get(0).getElement ( Constantes.MCDENTITE2 ) ;
 								ent.addInformation( mcdEntite.getCodeInformation(0) + "_" + Utilities.normaliseString(mCDAssociation.getName() , Constantes.LOWER) ) ;
+		            mpdLien.setElement(ent, Constantes.MCDENTITE2);
 							} 
 						}
-						
-						mpdLien.setElement(ent, Constantes.MCDENTITE2);
-					
 					}
 
 					ent = mpd.getMPDEntite(Utilities.normaliseString(
